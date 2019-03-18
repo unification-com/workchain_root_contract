@@ -3,9 +3,9 @@ require("dotenv").config();
 const WRKChainRoot = artifacts.require("./WRKChainRoot.sol");
 const Web3 = require('web3-utils');
 
-let genesis_block = process.env.WORKCHAIN_GENESIS
-let chain_id = process.env.WORKCHAIN_NETWORK_ID
-let current_evs = process.env.WORKCHAIN_EVS;
+let genesis_block = process.env.WRKCHAIN_GENESIS
+let chain_id = process.env.WRKCHAIN_NETWORK_ID
+let current_evs = process.env.WRKCHAIN_EVS;
 
 let evs_str = current_evs.replace(/\\(.)/mg, "$1");
 let evs = JSON.parse(evs_str);

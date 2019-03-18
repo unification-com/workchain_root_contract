@@ -46,7 +46,7 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-     development: {
+     development_mnemonic: {
       host: process.env.MAINCHAIN_RPC_HOST,     // Localhost (default: none)
       port: process.env.MAINCHAIN_RPC_PORT,            // Standard Ethereum port (default: none)
       network_id: process.env.MAINCHAIN_NETWORK_ID,       // Any network (default: none)

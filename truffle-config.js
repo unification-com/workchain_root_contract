@@ -27,6 +27,7 @@
 require("dotenv").config();
 
 const HDWalletProvider = require('truffle-hdwallet-provider');
+const PrivateKeyProvider = require("truffle-privatekey-provider");
 
 module.exports = {
   /**
@@ -51,6 +52,13 @@ module.exports = {
       port: process.env.MAINCHAIN_RPC_PORT,            // Standard Ethereum port (default: none)
       network_id: process.env.MAINCHAIN_NETWORK_ID,       // Any network (default: none)
       provider: new HDWalletProvider(process.env.MNEMONIC, process.env.MAINCHAIN_WEB3_PROVIDER_URL),
+      gas: 4700000,
+     },
+     development_pk: {
+      host: process.env.MAINCHAIN_RPC_HOST,     // Localhost (default: none)
+      port: process.env.MAINCHAIN_RPC_PORT,            // Standard Ethereum port (default: none)
+      network_id: process.env.MAINCHAIN_NETWORK_ID,       // Any network (default: none)
+      provider: new PrivateKeyProvider(process.env.PRIVATE_KEY, process.env.MAINCHAIN_WEB3_PROVIDER_URL),
       gas: 4700000,
      },
 

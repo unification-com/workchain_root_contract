@@ -1,8 +1,8 @@
 pragma solidity ^0.5.0;
 
-contract WorkchainRoot {
+contract WRKChainRoot {
 
-    //ID of the workchain, as defined in genesis.json
+    //ID of the wrkchain, as defined in genesis.json
     //Cannot be modified once written
     uint64 public chain_id;
 
@@ -67,7 +67,7 @@ contract WorkchainRoot {
 
     }
 
-    //Record a workchain block header
+    //Record a wrkchain block header
     function recordHeader(
         uint64 _height,
         bytes32 _hash,

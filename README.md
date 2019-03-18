@@ -1,6 +1,6 @@
-# Workchain Root Smart Contract
+# WRKChain Root Smart Contract
 
-A simple smart contract to store header hash data from a workchain
+A simple smart contract to store header hash data from a wrkchain
 
 ## Compiling & Installing
 
@@ -21,7 +21,7 @@ Also uses the default Accounts in the mnemonic seed "`candy maple cake sugar pud
 
 ## Advanced deployment
 
-The `migrations/2_deploy_workchain_root.js` can be modified as per Workchain:
+The `migrations/2_deploy_wrkchain_root.js` can be modified as per WRKChain:
 
 `genesis_block` is the full minified `genesis.json` content  
 `chain_id` is the chain ID  
@@ -33,7 +33,7 @@ First, we need to get the ABI:
 
 `npm run abi`
 
-Alternatively, open the file `build/contracts/WorkchainRoot.json`, and copy the contents of the `"abi"` object
+Alternatively, open the file `build/contracts/WRKChainRoot.json`, and copy the contents of the `"abi"` object
 (including `[]`)
 
 Open up BABEL-MEW (`/haiku-core/babel-mew/dist/index.html`) in a browser,  
@@ -47,7 +47,7 @@ Setting data can only be run using one of the current EV's private keys
 
 **`recordHeader`**
 
-Record a workchain's block header data on MainChain
+Record a wrkchain's block header data on MainChain
 
 Data can be obtained from the `mainchain_explorer` Docker, e.g. - http://192.168.43.24:8080/block/24
 
@@ -63,7 +63,7 @@ Inputs:
 
 **`setEvs`**
 
-Update the reference for the current EVs running the Workchain
+Update the reference for the current EVs running the WRKChain
 
 Inputs:  
 `_new_evs`: `address[]` array containing new EV public addresses, e.g. `["0x627306090abab3a6e1400e9345bc60c78a8bef57", "0xf17f52151ebef6c7334fad080c5704d77216b732"]` - can only be set by a current EV
@@ -75,7 +75,7 @@ The following functions return data from the smart contract:
 
 **`getEvs`**
 
-Retuns an array containing the public addresses of the current EVs maintaining the Workchain
+Retuns an array containing the public addresses of the current EVs maintaining the WRKChain
 
 **`getChainId`**
 
@@ -83,7 +83,7 @@ Returns the Chain ID
 
 **`getGenesis`**
 
-Returns the hash of the Workchain's genesis block
+Returns the hash of the WRKChain's genesis block
 
 **`getHeader`**
 
@@ -94,7 +94,7 @@ Inputs:
 
 **`isEv`**
 
-Checks if the given public address is currently an EV for the Workchain
+Checks if the given public address is currently an EV for the WRKChain
 
 Inputs:  
 `_ev`: `address` Public address

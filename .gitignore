@@ -1,2 +1,16 @@
 .DS_Store
+.idea*
 
+build/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+#All node_modules
+node_modules/

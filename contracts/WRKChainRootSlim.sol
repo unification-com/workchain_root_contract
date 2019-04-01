@@ -45,11 +45,6 @@ contract WRKChainRootSlim {
     function recordHeader(
         uint64 _height,
         bytes32 _hash,
-        bytes32 _parent_hash,
-        bytes32 _receipt_root,
-        bytes32 _tx_root,
-        bytes32 _state_root,
-        address _sealer,
         uint64 _chain_id) public onlyEv {
 
         require(_chain_id == chain_id, "Chain ID does not match");

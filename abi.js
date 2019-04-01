@@ -1,6 +1,11 @@
+require("dotenv").config();
 const fs = require('fs');
 
-const ContractJsonPath = './build/contracts/WRKChainRoot.json'
+let ContractJsonPath = './build/contracts/WRKChainRoot.json'
+
+if( process.env.WRKCHAIN_CONTRACT == 'slim') {
+    ContractJsonPath = './build/contracts/WRKChainRootSlim.json'
+}
 
 function main() {
     let args = process.argv.slice(2);

@@ -46,11 +46,11 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-     development_mnemonic: {
+     und_mainchain: {
       host: process.env.MAINCHAIN_RPC_HOST,     // Localhost (default: none)
       port: process.env.MAINCHAIN_RPC_PORT,            // Standard Ethereum port (default: none)
       network_id: process.env.MAINCHAIN_NETWORK_ID,       // Any network (default: none)
-      provider: new HDWalletProvider(process.env.MNEMONIC, process.env.MAINCHAIN_WEB3_PROVIDER_URL),
+      provider: new HDWalletProvider(process.env.PRIVATE_KEY, process.env.MAINCHAIN_WEB3_PROVIDER_URL),
       gas: 4700000,
      },
 

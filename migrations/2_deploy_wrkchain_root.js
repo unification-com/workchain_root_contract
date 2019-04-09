@@ -1,6 +1,11 @@
 require("dotenv").config();
 
-const WRKChainRoot = artifacts.require("./WRKChainRoot.sol");
+let WRKChainRoot = artifacts.require("./WRKChainRoot.sol");
+
+if( process.env.WRKCHAIN_CONTRACT == 'slim') {
+    WRKChainRoot = artifacts.require("./WRKChainRootSlim.sol");
+}
+
 const Web3 = require('web3-utils');
 
 let genesis_block = process.env.WRKCHAIN_GENESIS

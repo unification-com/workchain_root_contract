@@ -45,14 +45,14 @@ contract WRKChainRootSlim {
     function recordHeader(
         uint64 _height,
         bytes32 _hash,
-        uint64 _chain_id) public onlyEv {
+        uint64 _chain_id) external onlyEv {
 
         require(_chain_id == chain_id, "Chain ID does not match");
 
     }
 
     //Set the new EVs
-    function setEvs(address[] memory _new_evs) public onlyEv {
+    function setEvs(address[] calldata _new_evs) external onlyEv {
         require(_new_evs.length > 0, "EVs required");
 
         for(uint i =0; i < current_evs_idx.length; i++) {
@@ -63,31 +63,27 @@ contract WRKChainRootSlim {
             current_evs[_new_evs[i]] = true;
         }
 
-        delete current_evs_idx;
         current_evs_idx = _new_evs;
     }
 
 
     //get the Genesis block
-    function getGenesis() public view returns (bytes32 genesis_hash_) {
+    function getGenesis() external view returns (bytes32 genesis_hash_) {
         genesis_hash_ = genesis_hash;
     }
 
     //get the Chain ID
-    function getChainId() public view returns (uint64 chain_id_) {
+    function getChainId() external view returns (uint64 chain_id_) {
         chain_id_ = chain_id;
     }
 
     //return list of current EVs
-    function getEvs() public view returns (address[] memory current_evs_idx_) {
+    function getEvs() external view returns (address[] memory current_evs_idx_) {
         current_evs_idx_ = current_evs_idx;
     }
 
     //Check if public address is an EV
-    function isEv(address _ev) public view returns (bool) {
-        if(current_evs[_ev] == true) {
-            return true;
-        }
-        return false;
+    function isEv(address _ev) external view returns (bool) {
+    	   return current_evs[_ev];
     }
 }

@@ -11,6 +11,15 @@ contract WRKChainRootSlim {
 
     //Current EVs - also used to whitelist addresses that can write to contract
     mapping(address => bool) current_evs;
+    
+    //Slim header
+    struct BlockHeader {
+        uint64 height;
+        bytes32 hash;
+        address sealer;
+    }
+    // Store the hashes
+    mapping(uint64 => BlockHeader) block_headers;
     address[] current_evs_idx;
 
     //Modifier to ensure only current EVs can execute a function
@@ -48,9 +57,24 @@ contract WRKChainRootSlim {
         uint64 _chain_id) external onlyEv {
 
         require(_chain_id == chain_id, "Chain ID does not match");
-
+        require(current_evs[msg.sender] == true, "Sealer is not a current EV");
+        block_headers[_height] = BlockHeader(
+            _height,
+            _hash,
+            msg.sender
+        );
     }
+    
+    // get header at some height
+    function getHeader(uint64 _height) external view returns (
+        bytes32 hash,
+        address sealer) {
+        BlockHeader storage bh = block_headers[_height];
 
+        hash = bh.hash;
+        sealer = bh.sealer;
+    } 
+   
     //Set the new EVs
     function setEvs(address[] calldata _new_evs) external onlyEv {
         require(_new_evs.length > 0, "EVs required");
